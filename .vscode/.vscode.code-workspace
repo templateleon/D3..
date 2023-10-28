@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../NewsPaper"
+		},
+		{
+			"path": "../venv"
+		}
+	],
+	"settings": {}
+}

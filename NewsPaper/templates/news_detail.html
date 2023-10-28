@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% load custom_filters %}
+
+{% block title %}
+  {{ news_detail.title }}
+{% endblock %}
+
+{% block content %}
+  <div class="header_top">
+    <h4>{{ news_detail.title|censor }}</h4>
+    {{ news_detail.dataCreation }}
+  </div>
+  <p class="text_news">{{ news_detail.text|censor }}</p>
+{% endblock %}

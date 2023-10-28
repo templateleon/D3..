@@ -1,0 +1,35 @@
+aф{% extends 'index.html' %}
+{% load custom_filters %}
+{% block title %} 
+    {{ news.title }} 
+{% endblock title %} 
+{% block content %}
+  <div class="header_top">
+    <h3>
+      Лента новостей
+    </h3>
+    Всего публикаций: {{news|length}}
+  </div>
+{% if news %}
+  {% for n in news %}
+
+  <div class="header_news" onclick="location.href='{% url 'news_detail' pk=n.pk %}'">
+    <h5>{{ n.title|censor }}</h5> 
+    {{n.dataCreation|date:'M d Y'}}
+  </div>
+  
+  <div class="text_news">
+    {{ n.text|truncatechars:50|censor }}
+    <a href="{% url 'news_detail' pk=n.pk %}">Подробнее</a>
+
+  </div>
+  
+  {% endfor %}
+{% else %}
+  <h3 style="margin: 20px 40px; font-family: Arial, Helvetica, sans-serif">
+    новостей нет
+  </h3>
+{% endif %}
+{% endblock content %}
+
+
